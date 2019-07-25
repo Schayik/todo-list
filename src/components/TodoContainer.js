@@ -76,14 +76,9 @@ class TodoContainer extends Component {
   render() {
     const { todoList, addError, hideCompleted } = this.state
 
-    console.log(todoList)
-
     return (
       <StyledTodoContainer>
-        <AddTodo
-          addTodo={this.addTodo}
-          addError={addError}
-        />
+        <AddTodo />
         <ListTodo
           todoList={todoList}
           removeTodo={this.removeTodo}

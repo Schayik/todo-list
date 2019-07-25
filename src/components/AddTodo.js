@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
-const AddTodo = ({ addTodo, addError }) => {
+import { addTodoAction } from '../actions'
+
+const AddTodo = ({ addTodo, addError, addSucces }) => {
 
   const [value, setValue] = useState('')
+
+  const onSubmit = event => {
+    event.preventDefault()
+    addTodo(value)
+  }
 
   return (
     <StyledAddTodo>
       <p>Todo's</p>
       {addError && <p className='error'>{addError}</p>}
+      {addSucces && <p className='succes'>{addSucces}</p>}
       <form
         className='wrapper'
-        onSubmit={event => {
-          event.preventDefault()
-          addTodo(value)
-        }}
+        onSubmit={event => onSubmit(event)}
       >
         <input
           value={value}
@@ -29,7 +35,11 @@ const AddTodo = ({ addTodo, addError }) => {
   )
 }
 
-export default AddTodo
+const mapStateToProps = ({ addError, addSuccess }) => ({ addError, addSuccess })
+const mapDispatchToProps = dispatch => ({
+  addTodo: value => dispatch(addTodoAction(value)) 
+})
+export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)
 
 const StyledAddTodo = styled.div`
   p {
@@ -38,6 +48,10 @@ const StyledAddTodo = styled.div`
     &.error {
       margin-top: 4px;
       color: var(--red);
+    }
+    &.succes {
+      margin-top: 4px;
+      color: var(--green);
     }
   }
 
