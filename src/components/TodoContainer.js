@@ -61,6 +61,12 @@ class TodoContainer extends Component {
     })
   }
 
+  toggleHide = () => {
+    const { hideCompleted } = this.state
+
+    this.setState({ hideCompleted: !hideCompleted })
+  }
+
   render() {
     const { todoList, addError, hideCompleted } = this.state
 
@@ -80,7 +86,7 @@ class TodoContainer extends Component {
         />
         <HideTodo
           hideCompleted={hideCompleted}
-          toggleCompleted={this.toggleCompleted}
+          toggleHide={this.toggleHide}
         />
       </StyledTodoContainer>
     )

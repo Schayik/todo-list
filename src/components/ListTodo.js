@@ -42,7 +42,11 @@ export default ListTodo
 
 const StyledListTodo = styled.div`
   margin-top: 80px;
-  
+
+  h2 {
+    font-size: 24px;
+  }
+
   ul li {
     border-bottom: 1px var(--light) solid;
 
