@@ -19,6 +19,8 @@ const StyledTodoList = styled.div`
   align-items: center;
 
   h1 {
+    font-size: 36px;
+    font-weight: 300;
     margin-top: 40px;
   }
 

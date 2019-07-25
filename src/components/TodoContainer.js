@@ -8,26 +8,36 @@ import HideTodo from './HideTodo'
 class TodoContainer extends Component {
 
   state = {
-    todoList: [],
+    todoList: {},
     hideCompleted: false,
+    addError: '',
   }
 
   addTodo = name => {
     const { todoList } = this.state
-    const newTodo = {
-      name,
-      isCompleted: false,
-    }
 
-    this.setState({ todoList: todoList.concat(newTodo) })
+    if (todoList[name]) {
+      this.setState({ addError: 'this chore is already added' })
+    } else {
+      this.setState({ addError: '' })
+      this.setState({
+        todoList: {
+          ...todoList,
+          [name]: {
+            isCompleted: false,
+          }
+        }
+      })
+    }
   }
 
   removeTodo = name => {
     const { todoList } = this.state
 
-    this.setState({
-      todoList: todoList.filter(todo => todo.name !== name)
-    })
+    let newList = todoList
+    delete newList[name]
+
+    this.setState({ todoList: newList })
   }
 
   toggleCompleted = () => {
@@ -37,12 +47,15 @@ class TodoContainer extends Component {
   }
 
   render() {
-    const { todoList, hideCompleted } = this.state
+    const { todoList, addError, hideCompleted } = this.state
+
+    console.log(todoList)
 
     return (
       <StyledTodoContainer>
         <AddTodo
           addTodo={this.addTodo}
+          addError={addError}
         />
         <ListTodo
           todoList={todoList}
@@ -62,7 +75,7 @@ export default TodoContainer
 
 const StyledTodoContainer = styled.div`
   max-width: 600px;
-  width: 100%;
+  width: 100vw;
   background-color: var(--white);
   margin-top: 48px;
   padding: 48px;

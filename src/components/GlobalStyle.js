@@ -37,6 +37,9 @@ const GlobalStyle = createGlobalStyle`
     --grey: rgba(21, 38, 43, 0.3);
     --red: #f04e5e;
     --white: #ffffff;
+    --blue: #139ebe;
+    --green: rgba(42, 209, 117, 0.96);
+    --light-blue: rgba(19, 158, 190, 0.37);
   }
 `
 
