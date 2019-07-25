@@ -40,10 +40,18 @@ class TodoContainer extends Component {
     this.setState({ todoList: newList })
   }
 
-  toggleCompleted = () => {
-    const { toggleCompleted } = this.state
+  toggleCompleted = name => {
+    const { todoList } = this.state
 
-    this.setState({ toggleCompleted: !toggleCompleted })
+    this.setState({
+      todoList: {
+        ...todoList,
+        todoList[name]: {
+          ...todoList[name],
+          isCompleted: !todoList[name].completed,
+        }
+      }
+    })
   }
 
   render() {
@@ -60,6 +68,7 @@ class TodoContainer extends Component {
         <ListTodo
           todoList={todoList}
           removeTodo={this.removeTodo}
+          toggleCompleted={this.toggleCompleted}
           hideCompleted={hideCompleted}
         />
         <HideTodo
