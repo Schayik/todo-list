@@ -9,9 +9,15 @@ class TodoContainer extends Component {
 
   state = {
     todoList: {
-      'Make ConnectingTheDots Todo List': {
+      'Make Todo List': {
+        isCompleted: true,
+      },
+      'Send Todo List': {
+        isCompleted: true,
+      },
+      'Get Feedback on Todo List': {
         isCompleted: false,
-      }
+      },
     },
     hideCompleted: false,
     addError: '',

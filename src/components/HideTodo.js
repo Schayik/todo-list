@@ -10,7 +10,7 @@ const HideTodo = ({ hideCompleted, toggleHide }) => (
     </div>
     <Switch
       onChange={() => toggleHide()}
-      checked={hideCompleted}
+      checked={!hideCompleted}
       offColor='#139ebe'
       onColor='#2ad175'
       offHandleColor='#fff'
