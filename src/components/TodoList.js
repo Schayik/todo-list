@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import TodoContainer from './TodoContainer'
 
 const TodoList = () => (
-  <StyledTodoList>
+  <StyledTodoList className='compress'>
     <h1>Pim's todo list</h1>
     <div className='line' />
     <TodoContainer />
