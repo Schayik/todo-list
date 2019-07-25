@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
     --light: #ecf1f6;
     --grey: rgba(21, 38, 43, 0.3);
     --red: #f04e5e;
+    --white: #ffffff;
   }
 `
 
