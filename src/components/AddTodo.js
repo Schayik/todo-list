@@ -9,16 +9,22 @@ const AddTodo = ({ addTodo, addError }) => {
     <StyledAddTodo>
       <p>Todo's</p>
       {addError && <p className='error'>{addError}</p>}
-      <div className='wrapper'>
+      <form
+        className='wrapper'
+        onSubmit={event => {
+          event.preventDefault()
+          addTodo(value)
+        }}
+      >
         <input
           value={value}
           onChange={event => setValue(event.target.value)}
           placeholder="Add some todo's here..."
         />
-        <button onClick={() => addTodo(value)}>
+        <button type='submit'>
           Add +
         </button>
-      </div>
+      </form>
     </StyledAddTodo>
   )
 }
@@ -66,6 +72,10 @@ const StyledAddTodo = styled.div`
       margin-left: 16px;
       height: 48px;
       width: 120px;
+      &:hover {
+        opacity: .8;
+        cursor: pointer;
+      }
     }
   }
 `

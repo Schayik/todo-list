@@ -31,6 +31,24 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1;
   }
 
+  ul {
+    padding: 0;
+  }
+
+  button {
+    border: none;
+    border-radius: 24px;
+
+    color: var(--white);
+
+    height: 48px;
+    width: 48px;
+    &:hover {
+      cursor: pointer;
+      opacity: .8;
+    }
+  }
+
   :root {
     --black: rgba(0, 0, 0, 0.87);
     --light: #ecf1f6;

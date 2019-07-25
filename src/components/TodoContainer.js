@@ -8,7 +8,11 @@ import HideTodo from './HideTodo'
 class TodoContainer extends Component {
 
   state = {
-    todoList: {},
+    todoList: {
+      'Make ConnectingTheDots Todo List': {
+        isCompleted: false,
+      }
+    },
     hideCompleted: false,
     addError: '',
   }
@@ -16,7 +20,9 @@ class TodoContainer extends Component {
   addTodo = name => {
     const { todoList } = this.state
 
-    if (todoList[name]) {
+    if (!name) {
+      this.setState({ addError: 'please enter a chore' })
+    } else if (todoList[name]) {
       this.setState({ addError: 'this chore is already added' })
     } else {
       this.setState({ addError: '' })
@@ -42,13 +48,14 @@ class TodoContainer extends Component {
 
   toggleCompleted = name => {
     const { todoList } = this.state
+    const isCompleted = !todoList[name].isCompleted
 
     this.setState({
       todoList: {
         ...todoList,
-        todoList[name]: {
+        [name]: {
           ...todoList[name],
-          isCompleted: !todoList[name].completed,
+          isCompleted,
         }
       }
     })
