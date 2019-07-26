@@ -1,6 +1,6 @@
 
 ## Application
-Ik heb de applicatie ook deployed op Heroku zodat je het meteen kunt uitproberen: https://connecting-the-dots-todo-list.herokuapp.com/.
+Ik heb de applicatie ook deployed op Heroku zodat je het meteen kunt uitproberen:  https://connecting-the-dots-todo-list.herokuapp.com/.
 
 ## Development
 To start development:
