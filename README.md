@@ -19,5 +19,5 @@ Bij zo'n app komen er natuurlijk een hoop vragen op over hoe dingen precies moet
 
 Als er dingen onduidelijk zijn of als je aanpassingen wilt zien dan hoor ik het graag.
 
-Groeten,
+Groeten,  
 Pim
