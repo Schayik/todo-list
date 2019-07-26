@@ -43,6 +43,9 @@ const GlobalStyle = createGlobalStyle`
       cursor: pointer;
       opacity: .8;
     }
+    &:focus {
+      outline: none;
+    }
   }
 
   button.actionBtn {

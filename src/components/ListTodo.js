@@ -10,15 +10,18 @@ const ListTodo = ({ todoList, isHidden }) => {
   return (
     <StyledListTodo>
       <h2>Todo list</h2>
-      <ul>
-        {todoKeys.map(todoKey => {
-          if (isHidden && todoList[todoKey].isCompleted) {
-            return null
-          } else {
-            return <TodoItem key={todoKey} item={todoList[todoKey]} id={todoKey} />
-          }
-        })}
-      </ul>
+      {todoKeys.length === 0
+        ? <p className='no-todos'>You have no todo's.</p>
+        : <ul>
+            {todoKeys.map(todoKey => {
+              if (isHidden && todoList[todoKey].isCompleted) {
+                return null
+              } else {
+                return <TodoItem key={todoKey} item={todoList[todoKey]} id={todoKey} />
+              }
+            })}
+          </ul>
+      }
     </StyledListTodo>
   )
 }
@@ -31,5 +34,9 @@ const StyledListTodo = styled.div`
 
   h2 {
     font-size: 24px;
+  }
+
+  p.no-todos {
+    margin-top: 12px;
   }
 `

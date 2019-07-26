@@ -4,20 +4,31 @@ import { connect } from 'react-redux'
 
 import addIcon from '../images/add.svg'
 import { addTodoAction } from '../actions'
+import { doesExist } from '../helpers'
 
-const AddTodo = ({ addTodo, addError }) => {
+const AddTodo = ({ addTodo }) => {
 
   const [newTodo, setNewTodo] = useState('')
+  const [error, setError] = useState('')
 
   const onSubmit = event => {
     event.preventDefault()
-    addTodo(newTodo)
+
+    if (!newTodo) {
+      setError('please enter a chore')
+    } else if (doesExist(newTodo)) {
+      setError('this chore is already added')
+    } else {
+      setError('')
+      setNewTodo('')
+      addTodo(newTodo)
+    }
   }
 
   return (
     <StyledAddTodo>
       <p>Todo's</p>
-      {addError && <p className='error'>{addError}</p>}
+      {error && <p className='error'>{error}</p>}
       <form
         className='wrapper'
         onSubmit={event => onSubmit(event)}

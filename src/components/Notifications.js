@@ -4,13 +4,18 @@ import { connect } from 'react-redux'
 
 import Notification from './Notification'
 
-const Notifications = ({ notifications }) => (
-  <StyledNotifications>
-    {Object.keys(notifications).map(notificationKey => (
-      <Notification key={notificationKey} id={notificationKey} />
-    ))}
-  </StyledNotifications>
-)
+const Notifications = ({ notifications }) => {
+  const keys = Object.keys(notifications)
+  const lastFive = keys.slice(-5)
+
+  return (
+    <StyledNotifications>
+      {lastFive.map(key => (
+        <Notification key={key} id={key} />
+      ))}
+    </StyledNotifications>
+  )
+}
 
 const mapStateToProps = ({ notifications }) => ({ notifications })
 export default connect(mapStateToProps)(Notifications)
