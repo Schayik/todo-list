@@ -6,8 +6,7 @@ import {
   checkIfCompleted
 } from './helpers'
 
-export const ADD_TODO_SUCCES = 'ADD_TODO_SUCCES'
-export const ADD_TODO_FAIL = 'ADD_TODO_FAIL'
+export const ADD_TODO = 'ADD_TODO'
 export const REMOVE_TODO = 'REMOVE_TODO'
 export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED'
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION'
@@ -18,7 +17,7 @@ export const addTodoAction = text => dispatch => {
   const id = generateId()
 
   dispatch({
-    type: ADD_TODO_SUCCES,
+    type: ADD_TODO,
     id,
     text,
   })

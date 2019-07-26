@@ -65,3 +65,20 @@ export const getText = (name, type) => {
      return null
   }
 }
+
+export const getTime = timestamp => {
+  const date = new Date(timestamp)
+
+  const addZeros = time => {
+    if (String(time).length === 1) {
+      return `0${time}`
+    } else {
+      return time
+    }
+  }
+
+  const dateString = `${addZeros(date.getDay())}-${addZeros(date.getMonth())}-${date.getFullYear()}`
+  const timeString = `${addZeros(date.getHours())}:${addZeros(date.getMinutes())}`
+
+  return `${dateString} ${timeString}`
+}

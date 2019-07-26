@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import CloseIcon from '../images/CloseIcon'
 import { removeNotificationAction } from '../actions'
-import { getText } from '../helpers'
+import { getText, getTime } from '../helpers'
 
 const Notification = ({ id, notification, removeNotification }) => (
   <StyledNotification className={notification.type.toLowerCase()}>
@@ -17,7 +17,7 @@ const Notification = ({ id, notification, removeNotification }) => (
       </div>
       <p className='name'>{getText(notification.todoText, notification.type)}</p>
     </div>
-    <p className='time'>{notification.todoAdded}</p>
+    <p className='time'>Added {getTime(notification.todoAdded)}</p>
   </StyledNotification>
 )
 
