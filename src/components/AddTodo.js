@@ -4,27 +4,26 @@ import { connect } from 'react-redux'
 
 import { addTodoAction } from '../actions'
 
-const AddTodo = ({ addTodo, addError, addSucces }) => {
+const AddTodo = ({ addTodo, addError }) => {
 
-  const [value, setValue] = useState('')
+  const [newTodo, setNewTodo] = useState('')
 
   const onSubmit = event => {
     event.preventDefault()
-    addTodo(value)
+    addTodo(newTodo)
   }
 
   return (
     <StyledAddTodo>
       <p>Todo's</p>
       {addError && <p className='error'>{addError}</p>}
-      {addSucces && <p className='succes'>{addSucces}</p>}
       <form
         className='wrapper'
         onSubmit={event => onSubmit(event)}
       >
         <input
-          value={value}
-          onChange={event => setValue(event.target.value)}
+          value={newTodo}
+          onChange={event => setNewTodo(event.target.value)}
           placeholder="Add some todo's here..."
         />
         <button type='submit' className='actionBtn'>
@@ -35,9 +34,9 @@ const AddTodo = ({ addTodo, addError, addSucces }) => {
   )
 }
 
-const mapStateToProps = ({ addError, addSuccess }) => ({ addError, addSuccess })
+const mapStateToProps = ({ addError }) => ({ addError })
 const mapDispatchToProps = dispatch => ({
-  addTodo: value => dispatch(addTodoAction(value))
+  addTodo: name => dispatch(addTodoAction(name))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)
 

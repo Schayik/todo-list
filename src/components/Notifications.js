@@ -2,21 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
-import { getText } from '../helpers'
+import Notification from './Notification'
 
 const Notifications = ({ notifications }) => (
   <StyledNotifications>
-    {notifications.map(notification => (
-      <li key={notification.todoName + notification.timeAdded} className={notification.type.toLowerCase()}>
-        <div>
-          <div className='inner-wrapper'>
-            <p className='type'>Task {notification.type.toLowerCase()}</p>
-            <button onClick={() => console.log('remove:', notification.todoName)}>x</button>
-          </div>
-          <p className='name'>{getText(notification.todoName, notification.type)}</p>
-        </div>
-        <p className='time'>{notification.timeAdded}</p>
-      </li>
+    {Object.keys(notifications).map(notificationKey => (
+      <Notification key={notificationKey} id={notificationKey} />
     ))}
   </StyledNotifications>
 )

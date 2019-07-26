@@ -4,39 +4,46 @@ import {
   ADD_TODO_FAIL,
   REMOVE_TODO,
   TOGGLE_COMPLETED,
+  ADD_NOTIFICATION,
+  REMOVE_NOTIFICATION,
 } from './actions'
 
 const initialState = {
   todoList: {
-    'Make Todo List': {
+    3670184576441036: {
+      text: 'Make Todo List',
       isCompleted: true,
+      timestampAdded: new Date().getTime(),
     },
-    'Send Todo List': {
+    3670184576441034: {
+      text: 'Send Todo List',
       isCompleted: true,
+      timestampAdded: new Date().getTime(),
     },
-    'Get Feedback on Todo List': {
+    3670184576441035: {
+      text: 'Get Feedback on Todo List',
       isCompleted: false,
+      timestampAdded: new Date().getTime(),
     },
   },
-  notifications: [
-    {
+  notifications: {
+    3670184576441036: {
       type: 'REMOVED',
-      todoName: 'Apply for job',
-      timeAdded: 1564113959,
+      todoText: 'Get Feedback on Todo List',
+      todoAdded: 1564113959,
     },
-    {
+    3670184576441032: {
       type: 'ADDED',
-      todoName: 'Send Todo List',
-      timeAdded: 1564113959,
+      todoText: 'Get Feedback on Todo List',
+      todoAdded: 1564113959,
     },
-    {
+    3670184576441031: {
       type: 'COMPLETED',
-      todoName: 'Send Todo List',
-      timeAdded: 1564113958,
+      todoText: 'Get Feedback on Todo List',
+      todoAdded: 1564113959,
     },
-  ],
+  },
   addError: '',
-  addSucces: '',
 }
 
 export const todos = (state=initialState, action) => {
@@ -45,11 +52,12 @@ export const todos = (state=initialState, action) => {
       return {
         ...state,
         addError: '',
-        addSucces: 'Chore successfully added',
         todoList: {
           ...state.todoList,
-          [action.name]: {
+          [action.id]: {
+            text: action.text,
             isCompleted: false,
+            timestampAdded: new Date().getTime(),
           }
         }
       }
@@ -57,29 +65,46 @@ export const todos = (state=initialState, action) => {
       return {
         ...state,
         addError: action.addError,
-        addSucces: '',
       }
     case REMOVE_TODO:
       let newTodoList = Object.assign({}, state.todoList)
-      delete newTodoList[action.name]
+      delete newTodoList[action.id]
       return {
         ...state,
         todoList: newTodoList,
         addError: '',
-        addSucces: '',
       }
     case TOGGLE_COMPLETED:
       return {
         ...state,
         todoList: {
           ...state.todoList,
-          [action.name]: {
-            ...state.todoList[action.name],
-            isCompleted: !state.todoList[action.name].isCompleted,
+          [action.id]: {
+            ...state.todoList[action.id],
+            isCompleted: !state.todoList[action.id].isCompleted,
           }
         },
         addError: '',
-        addSucces: '',
+      }
+    case ADD_NOTIFICATION:
+      return {
+        ...state,
+        notifications: {
+          ...state.notifications,
+          [action.id]: {
+            type: action.notificationType,
+            todoText: action.todoText,
+            todoAdded: action.todoAdded,
+          }
+        }
+      }
+    case REMOVE_NOTIFICATION:
+      let newNotifications = Object.assign({}, state.notifications)
+      delete newNotifications[action.id]
+      return {
+        ...state,
+        notifications: newNotifications,
+        addError: '',
       }
     default:
       return state

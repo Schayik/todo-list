@@ -4,19 +4,19 @@ import { connect } from 'react-redux'
 
 import { removeTodoAction, toggleCompletedAction } from '../actions'
 
-const TodoItem = ({ name, item, removeTodo, toggleCompleted }) => (
+const TodoItem = ({ id, item, removeTodo, toggleCompleted }) => (
   <StyledTodoItem>
-    <p>{name}</p>
+    <p>{item.text}</p>
     <div className='buttons'>
       <button
         className='remove actionBtn'
-        onClick={() => removeTodo(name)}
+        onClick={() => removeTodo(id)}
       >
         x
       </button>
       <button
         className={item.isCompleted ? 'complete completed actionBtn' : 'complete actionBtn'}
-        onClick={() => toggleCompleted(name)}
+        onClick={() => toggleCompleted(id)}
       >
         y
       </button>

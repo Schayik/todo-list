@@ -15,7 +15,7 @@ const ListTodo = ({ todoList, isHidden }) => {
           if (isHidden && todoList[todoKey].isCompleted) {
             return null
           } else {
-            return <TodoItem key={todoKey} item={todoList[todoKey]} name={todoKey} />
+            return <TodoItem key={todoKey} item={todoList[todoKey]} id={todoKey} />
           }
         })}
       </ul>

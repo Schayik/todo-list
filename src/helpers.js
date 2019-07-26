@@ -1,13 +1,8 @@
-import { store } from './index'
 
-export const doesExist = name => {
-  const { todoList } = store.getState()
-
-  if (Object.keys(todoList).includes(name)) {
-    return true
-  } else {
-    return false
-  }
+export const generateId = () => {
+  const timestamp = String(new Date().getTime())
+  const randomNumber = String(Math.floor(Math.random() * 1000))
+  return timestamp + randomNumber
 }
 
 export const getText = (name, type) => {
