@@ -53,13 +53,14 @@ const StyledTodoContainer = styled.div`
     border-radius: 6px;
     box-shadow: 0 0 6px 0 var(--grey);
 
-    width: calc(100vw - 32px);
+    width: calc(100vw - 72px);
     max-width: 600px;
     margin-top: 48px;
     padding: 48px;
 
     @media(max-width: ${props => props.theme.breakpoints.phone}px) {
       padding: 24px;
+      width: calc(100vw - 32px);
     }
   }
 `
