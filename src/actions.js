@@ -1,5 +1,5 @@
 
-import { store } from './'
+import { doesExist } from './helpers'
 
 export const ADD_TODO_SUCCES = 'ADD_TODO_SUCCES'
 export const ADD_TODO_FAIL = 'ADD_TODO_FAIL'
@@ -38,14 +38,4 @@ export const toggleCompletedAction = name => dispatch => {
     type: TOGGLE_COMPLETED,
     name,
   })
-}
-
-const doesExist = name => {
-  const { todoList } = store.getState()
-
-  if (Object.keys(todoList).includes(name)) {
-    return true
-  } else {
-    return false
-  }
 }

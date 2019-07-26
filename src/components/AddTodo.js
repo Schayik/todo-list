@@ -27,7 +27,7 @@ const AddTodo = ({ addTodo, addError, addSucces }) => {
           onChange={event => setValue(event.target.value)}
           placeholder="Add some todo's here..."
         />
-        <button type='submit'>
+        <button type='submit' className='actionBtn'>
           Add +
         </button>
       </form>
@@ -37,7 +37,7 @@ const AddTodo = ({ addTodo, addError, addSucces }) => {
 
 const mapStateToProps = ({ addError, addSuccess }) => ({ addError, addSuccess })
 const mapDispatchToProps = dispatch => ({
-  addTodo: value => dispatch(addTodoAction(value)) 
+  addTodo: value => dispatch(addTodoAction(value))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)
 

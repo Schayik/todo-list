@@ -3,14 +3,14 @@ import styled from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
 import NavBar from './NavBar'
-import TodoList from './TodoList'
+import TodoContainer from './TodoContainer'
 import Footer from './Footer'
 
 const App = () => (
   <StyledApp>
     <GlobalStyle />
     <NavBar />
-    <TodoList />
+    <TodoContainer />
     <Footer />
   </StyledApp>
 )

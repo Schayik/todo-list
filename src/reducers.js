@@ -18,6 +18,23 @@ const initialState = {
       isCompleted: false,
     },
   },
+  notifications: [
+    {
+      type: 'REMOVED',
+      todoName: 'Apply for job',
+      timeAdded: 1564113959,
+    },
+    {
+      type: 'ADDED',
+      todoName: 'Send Todo List',
+      timeAdded: 1564113959,
+    },
+    {
+      type: 'COMPLETED',
+      todoName: 'Send Todo List',
+      timeAdded: 1564113958,
+    },
+  ],
   addError: '',
   addSucces: '',
 }

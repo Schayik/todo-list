@@ -37,16 +37,19 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     border: none;
-    border-radius: 24px;
-
-    color: var(--white);
-
-    height: 48px;
-    width: 48px;
+    background-color: var(--white);
+    padding: 0;
     &:hover {
       cursor: pointer;
       opacity: .8;
     }
+  }
+
+  button.actionBtn {
+    border-radius: 24px;
+    color: var(--white);
+    height: 48px;
+    width: 48px;
   }
 
   :root {

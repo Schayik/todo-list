@@ -9,13 +9,13 @@ const TodoItem = ({ name, item, removeTodo, toggleCompleted }) => (
     <p>{name}</p>
     <div className='buttons'>
       <button
-        className='remove'
+        className='remove actionBtn'
         onClick={() => removeTodo(name)}
       >
         x
       </button>
       <button
-        className={item.isCompleted ? 'complete completed' : 'complete'}
+        className={item.isCompleted ? 'complete completed actionBtn' : 'complete actionBtn'}
         onClick={() => toggleCompleted(name)}
       >
         y
