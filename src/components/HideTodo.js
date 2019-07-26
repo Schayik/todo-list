@@ -42,5 +42,9 @@ const StyledHideTodo = styled.div`
     font-size: 16px;
   }
 
+  @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+    margin-top: 40px;
+  }
+
 
 `

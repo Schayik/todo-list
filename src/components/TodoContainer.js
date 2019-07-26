@@ -10,7 +10,7 @@ const TodoContainer = () => {
   const [isHidden, setHidden] = useState(false)
 
   return (
-    <StyledTodoContainer>
+    <StyledTodoContainer className='compress' >
       <h1>Pim's todo list</h1>
       <div className='line' />
       <div className='container'>
@@ -49,13 +49,17 @@ const StyledTodoContainer = styled.div`
   }
 
   .container {
+    align-self: stretch;
     background-color: var(--white);
     border-radius: 6px;
     box-shadow: 0 0 6px 0 var(--grey);
 
     max-width: 600px;
-    width: 100vw;
     margin-top: 48px;
     padding: 48px;
+
+    @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+      padding: 24px;
+    }
   }
 `

@@ -1,5 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const THEME = {
+  breakpoints: {
+    phone: 576 - 1,
+    xs: 375 - 1,
+  }
+}
+
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -22,6 +29,11 @@ const GlobalStyle = createGlobalStyle`
     margin-right: auto;
     padding-left: 36px;
     padding-right: 36px;
+
+    @media(max-width: ${THEME.breakpoints.phone}px) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 
   h1, h2, h3, h4, h5, h6, p, a, button, input, label {
@@ -58,6 +70,11 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media(max-width: ${THEME.breakpoints.phone}px) {
+      height: 32px;
+      width: 32px;
+    }
   }
 
   :root {

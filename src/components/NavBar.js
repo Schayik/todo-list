@@ -75,7 +75,18 @@ const StyledNavBar = styled.div`
     }
   }
 
-
+  @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+    .content {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      .logo {
+        height: auto;
+        width: 200px;
+      }
+      .notifications {
+        height: 32px;
+      }
+  }
 
 
 

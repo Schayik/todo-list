@@ -39,4 +39,8 @@ const StyledListTodo = styled.div`
   p.no-todos {
     margin-top: 12px;
   }
+
+  @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+    margin-top: 40px;
+  }
 `

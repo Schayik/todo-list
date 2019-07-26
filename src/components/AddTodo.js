@@ -74,6 +74,7 @@ const StyledAddTodo = styled.div`
       flex: 1;
       border: 2px var(--light-blue) solid;
       border-radius: 6px;
+      width: 0;
 
       font-size: 18px;
 
@@ -93,7 +94,6 @@ const StyledAddTodo = styled.div`
       border-radius: 24px;
 
       margin-left: 16px;
-      height: 48px;
       width: 120px;
 
       p {
@@ -111,6 +111,33 @@ const StyledAddTodo = styled.div`
         opacity: .8;
         cursor: pointer;
       }
+    }
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+    .wrapper {
+      input {
+        font-size: 14px;
+        padding: 0 8px;
+        height: 32px;
+      }
+      button {
+        width: 72px;
+        p {
+          font-size: 14px;
+        }
+        img {
+          height: 10px;
+          width: 10px;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.xs}px) {
+    .wrapper input {
+      font-size: 12px;
     }
   }
 `

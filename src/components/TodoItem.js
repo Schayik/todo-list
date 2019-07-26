@@ -48,6 +48,7 @@ const StyledTodoItem = styled.li`
   }
 
   .buttons {
+    margin-left: 16px;
     flex-shrink: 0;
     display: flex;
 
@@ -67,6 +68,9 @@ const StyledTodoItem = styled.li`
         background-color: var(--green);
         opacity: .5;
         margin-left: 24px;
+        @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+          margin-left: 8px;
+        }
         &:hover {
           opacity: .7;
         }
@@ -77,6 +81,19 @@ const StyledTodoItem = styled.li`
           }
         }
       }
+    }
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+    margin-top: 12px;
+    p {
+      font-size: 14px;
+    }
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.xs}px) {
+    p {
+      font-size: 12px;
     }
   }
 

@@ -79,9 +79,10 @@ const StyledNotification = styled.ul`
     margin-top: 2px;
     color: var(--grey);
     font-size: 13px;
+    line-height: 1.2;
   }
   p.time {
-    margin-top: 2px;
+    margin-top: 4px;
     color: var(--grey);
     font-size: 11px;
   }

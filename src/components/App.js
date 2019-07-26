@@ -1,18 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
 import NavBar from './NavBar'
 import TodoContainer from './TodoContainer'
 import Footer from './Footer'
+import { THEME } from './GlobalStyle'
 
 const App = () => (
-  <StyledApp>
-    <GlobalStyle />
-    <NavBar />
-    <TodoContainer />
-    <Footer />
-  </StyledApp>
+  <ThemeProvider theme={THEME}>
+    <StyledApp>
+      <GlobalStyle />
+      <NavBar />
+      <TodoContainer />
+      <Footer />
+    </StyledApp>
+  </ThemeProvider>
 )
 
 export default App;

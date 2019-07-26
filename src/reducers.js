@@ -10,6 +10,11 @@ import {
 
 const initialState = {
   todoList: {
+    3670184576441032: {
+      text: 'Find car keys, leave house, go to the car, open car, get in the car, drive car to grocery store, get groceries, pay groceries, get back in car, drive back, do not cause accidents, get home, unpack groceries, sleep.',
+      isCompleted: true,
+      timestampAdded: new Date().getTime(),
+    },
     3670184576441036: {
       text: 'Make Todo List',
       isCompleted: true,
@@ -27,21 +32,21 @@ const initialState = {
     },
   },
   notifications: {
-    3670184576441036: {
-      type: 'REMOVED',
-      todoText: 'Get Feedback on Todo List',
-      todoAdded: 1564113959,
-    },
-    3670184576441032: {
-      type: 'ADDED',
-      todoText: 'Get Feedback on Todo List',
-      todoAdded: 1564113959,
-    },
-    3670184576441031: {
-      type: 'COMPLETED',
-      todoText: 'Get Feedback on Todo List',
-      todoAdded: 1564113959,
-    },
+    // 3670184576441036: {
+    //   type: 'REMOVED',
+    //   todoText: 'Get Feedback on Todo List',
+    //   todoAdded: 1564113959,
+    // },
+    // 3670184576441032: {
+    //   type: 'ADDED',
+    //   todoText: 'Get Feedback on Todo List',
+    //   todoAdded: 1564113959,
+    // },
+    // 3670184576441031: {
+    //   type: 'COMPLETED',
+    //   todoText: 'Get Feedback on Todo List',
+    //   todoAdded: 1564113959,
+    // },
   },
   addError: '',
 }
