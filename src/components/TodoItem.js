@@ -45,6 +45,7 @@ const StyledTodoItem = styled.li`
   p {
     color: var(--red);
     font-size: 16px;
+    line-height: 1.2;
   }
 
   .buttons {
