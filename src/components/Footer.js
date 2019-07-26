@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Footer = () => (
   <StyledFooter className='compress'>
-    <p>Copyright © 2019  ConnectingTheDots. All rights reserved.</p>
+    <p><span>Copyright © 2019.</span> <span>ConnectingTheDots.</span> <span>All rights reserved.</span></p>
   </StyledFooter>
 )
 
@@ -17,5 +17,9 @@ const StyledFooter = styled.div`
     color: var(--grey);
     font-size: 13px;
     text-align: center;
+    line-height: 1.4;
+    span {
+      display: inline-block;
+    }
   }
 `

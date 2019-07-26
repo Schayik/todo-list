@@ -1,7 +1,11 @@
 
+## Application
+Ik heb de applicatie ook deployed op Heroku zodat je het meteen kunt uitproberen: https://connecting-the-dots-todo-list.herokuapp.com/.
+
 ## Development
-To start development, clone repository: `git clone https://github.com/Schayik/todo-list.git`
-Install dependencies: `yarn`
+To start development, clone repository: `git clone https://github.com/Schayik/todo-list.git`  
+Move to folder: `cd todo-list`  
+Install dependencies: `yarn`  
 Run script: `yarn start`
 
 ## Comments
@@ -9,5 +13,7 @@ Bij zo'n app komen er natuurlijk een hoop vragen op over hoe dingen precies moet
 
 * Aangezien ik volgens mij niet bij de assets kon, heb ik het logo ge-print-screened en de icoontjes gewoon van internet geplukt.
 * Je kunt Todos die completed zijn incomplete maken door er nog een keer op te drukken. De notification wordt dan vervangen in plaats van toegevoegd.
-* Ik laat maximaal drie notifications zien
-* Ik heb simpele error handling toegevoegd bij het aanmaken van een todo zodat er geen dubbele kunnen zijn.s
+* Ik laat maximaal drie notifications zien.
+* Ik heb simpele error handling toegevoegd bij het aanmaken van een todo zodat er geen dubbele kunnen zijn.
+
+Als er dingen onduidelijk zijn of als je aanpassingen wilt zien dan hoor ik het graag.

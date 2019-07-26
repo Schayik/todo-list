@@ -89,6 +89,15 @@ const StyledTodoItem = styled.li`
     p {
       font-size: 14px;
     }
+
+    .buttons button {
+      svg {
+        width: 10px;
+      }
+      img {
+        width: 12px;
+      }
+    }
   }
 
   @media(max-width: ${props => props.theme.breakpoints.xs}px) {
