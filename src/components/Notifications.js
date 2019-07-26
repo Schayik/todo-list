@@ -6,7 +6,7 @@ import Notification from './Notification'
 
 const Notifications = ({ notifications }) => {
   const keys = Object.keys(notifications)
-  const lastFive = keys.slice(-5)
+  const lastFive = keys.slice(-3)
 
   return (
     <StyledNotifications>
@@ -28,4 +28,5 @@ const StyledNotifications = styled.ul`
 
   list-style: none;
   padding: 0;
+  margin: 0;
 `

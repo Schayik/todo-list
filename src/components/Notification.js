@@ -45,6 +45,16 @@ const StyledNotification = styled.ul`
   flex-direction: column;
   justify-content: space-between;
 
+  &.removed {
+    border-color: var(--red);
+  }
+  &.added {
+    border-color: var(--blue);
+  }
+  &.completed {
+    border-color: var(--green);
+  }
+
   button {
     height: 16px;
     width: 16px;
@@ -54,16 +64,6 @@ const StyledNotification = styled.ul`
       height: 8px;
       width: 8px;
     }
-  }
-
-  &.removed {
-    border-color: var(--red);
-  }
-  &.added {
-    border-color: var(--blue);
-  }
-  &.completed {
-    border-color: var(--green);
   }
 
   .inner-wrapper {
@@ -85,5 +85,28 @@ const StyledNotification = styled.ul`
     margin-top: 4px;
     color: var(--grey);
     font-size: 11px;
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.phone}px) {
+    margin-top: 16px;
+    width: 200px;
+    min-height: 0;
+    padding: 8px;
+
+    .inner-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    p.type {
+      font-size: 11px;
+    }
+    p.name {
+      font-size: 11px;
+    }
+    p.time {
+      font-size: 10px;
+    }
   }
 `

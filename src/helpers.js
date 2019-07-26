@@ -60,7 +60,7 @@ export const getText = (name, type) => {
     case 'COMPLETED':
       return `'${name}' has been done`
     case 'INCOMPLETE':
-      return `'${name}' has not been done`
+      return `'${name}' has been set to 'incomplete'`
     default:
      return null
   }
