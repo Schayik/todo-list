@@ -6,11 +6,12 @@ import Notification from './Notification'
 
 const Notifications = ({ notifications }) => {
   const keys = Object.keys(notifications)
-  const lastFive = keys.slice(-3)
+  const orderedKeys = keys.sort()
+  const lastFiveKeys = orderedKeys.slice(-3)
 
   return (
     <StyledNotifications>
-      {lastFive.map(key => (
+      {lastFiveKeys.map(key => (
         <Notification key={key} id={key} />
       ))}
     </StyledNotifications>

@@ -9,19 +9,19 @@ import {
 
 const initialState = {
   todoList: {
-    3670184576441032: {
+    15641780591401234: {
       text: 'Make Todo List',
       isCompleted: true,
       timestampAdded: 1564178059140,
     },
-    3670184576441035: {
+    15641780591404321: {
       text: 'A very long todo item to show that it will not break the app or make things look weird',
       isCompleted: false,
       timestampAdded: 1564178059140,
     },
   },
   notifications: {
-    3670184576441036: {
+    15641780591402341: {
       type: 'ADDED',
       todoText: 'A very long todo item to show that it will not break the app or make things look weird',
       todoAdded: 1564178059140,

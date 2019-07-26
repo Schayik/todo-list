@@ -6,6 +6,7 @@ import TodoItem from './TodoItem'
 
 const ListTodo = ({ todoList, isHidden }) => {
   const todoKeys = Object.keys(todoList)
+  const sortedKeys = todoKeys.sort()
 
   return (
     <StyledListTodo>
@@ -13,7 +14,7 @@ const ListTodo = ({ todoList, isHidden }) => {
       {todoKeys.length === 0
         ? <p className='no-todos'>You have no todo's.</p>
         : <ul>
-            {todoKeys.map(todoKey => {
+            {sortedKeys.map(todoKey => {
               if (isHidden && todoList[todoKey].isCompleted) {
                 return null
               } else {
