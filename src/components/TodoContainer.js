@@ -49,11 +49,11 @@ const StyledTodoContainer = styled.div`
   }
 
   .container {
-    align-self: stretch;
     background-color: var(--white);
     border-radius: 6px;
     box-shadow: 0 0 6px 0 var(--grey);
 
+    width: calc(100vw - 32px);
     max-width: 600px;
     margin-top: 48px;
     padding: 48px;
