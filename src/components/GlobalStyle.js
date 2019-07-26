@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .compress {
-    max-width: 1100px;
+    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 36px;
@@ -50,6 +50,11 @@ const GlobalStyle = createGlobalStyle`
     color: var(--white);
     height: 48px;
     width: 48px;
+
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   :root {

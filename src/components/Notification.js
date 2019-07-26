@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
+import CloseIcon from '../images/CloseIcon'
 import { removeNotificationAction } from '../actions'
 import { getText } from '../helpers'
 
@@ -10,7 +11,9 @@ const Notification = ({ id, notification, removeNotification }) => (
     <div>
       <div className='inner-wrapper'>
         <p className='type'>Task {notification.type.toLowerCase()}</p>
-        <button onClick={() => removeNotification(id)}>x</button>
+        <button onClick={() => removeNotification(id)}>
+          <CloseIcon />
+        </button>
       </div>
       <p className='name'>{getText(notification.todoText, notification.type)}</p>
     </div>
@@ -41,6 +44,17 @@ const StyledNotification = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  button {
+    height: 16px;
+    width: 16px;
+    img, svg {
+      fill: var(--grey);
+      stroke: var(--grey);
+      height: 8px;
+      width: 8px;
+    }
+  }
 
   &.removed {
     border-color: var(--red);

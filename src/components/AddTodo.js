@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
+import addIcon from '../images/add.svg'
 import { addTodoAction } from '../actions'
 
 const AddTodo = ({ addTodo, addError }) => {
@@ -27,7 +28,8 @@ const AddTodo = ({ addTodo, addError }) => {
           placeholder="Add some todo's here..."
         />
         <button type='submit' className='actionBtn'>
-          Add +
+          <p>Add</p>
+          <img src={addIcon} alt='' />
         </button>
       </form>
     </StyledAddTodo>
@@ -79,12 +81,21 @@ const StyledAddTodo = styled.div`
       border: none;
       border-radius: 24px;
 
-      color: var(--white);
-      font-size: 16px;
-
       margin-left: 16px;
       height: 48px;
       width: 120px;
+
+      p {
+        color: var(--white);
+        font-size: 16px;
+      }
+
+      img {
+        height: 12px;
+        width: 12px;
+        margin-left: 12px;
+      }
+
       &:hover {
         opacity: .8;
         cursor: pointer;
