@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
-const ListTodo = ({ todoList, removeTodo, toggleCompleted, hideCompleted }) => {
+import { removeTodoAction, toggleCompletedAction } from '../actions'
+
+const ListTodo = ({ todoList, removeTodo, toggleCompleted, isHidden }) => {
   const todoKeys = Object.keys(todoList)
 
   return (
@@ -9,7 +12,7 @@ const ListTodo = ({ todoList, removeTodo, toggleCompleted, hideCompleted }) => {
       <h2>Todo list</h2>
       <ul>
         {todoKeys.map(todoKey => {
-          if (hideCompleted && todoList[todoKey].isCompleted) {
+          if (isHidden && todoList[todoKey].isCompleted) {
             return null
           }
 
@@ -38,7 +41,12 @@ const ListTodo = ({ todoList, removeTodo, toggleCompleted, hideCompleted }) => {
   )
 }
 
-export default ListTodo
+const mapStateToProps = ({ todoList }) => ({ todoList })
+const mapDispatchToProps = dispatch => ({
+  removeTodo: name => dispatch(removeTodoAction(name)),
+  toggleCompleted: name => dispatch(toggleCompletedAction(name)),
+})
+export default connect(mapStateToProps, mapDispatchToProps)(ListTodo)
 
 const StyledListTodo = styled.div`
   margin-top: 80px;

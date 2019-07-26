@@ -3,6 +3,7 @@ import {
   ADD_TODO_SUCCES,
   ADD_TODO_FAIL,
   REMOVE_TODO,
+  TOGGLE_COMPLETED,
 } from './actions'
 
 const initialState = {
@@ -42,8 +43,26 @@ export const todos = (state=initialState, action) => {
         addSucces: '',
       }
     case REMOVE_TODO:
+      let newTodoList = Object.assign({}, state.todoList)
+      delete newTodoList[action.name]
       return {
-
+        ...state,
+        todoList: newTodoList,
+        addError: '',
+        addSucces: '',
+      }
+    case TOGGLE_COMPLETED:
+      return {
+        ...state,
+        todoList: {
+          ...state.todoList,
+          [action.name]: {
+            ...state.todoList[action.name],
+            isCompleted: !state.todoList[action.name].isCompleted,
+          }
+        },
+        addError: '',
+        addSucces: '',
       }
     default:
       return state

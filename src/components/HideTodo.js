@@ -2,15 +2,15 @@ import React from 'react'
 import Switch from 'react-switch'
 import styled from 'styled-components'
 
-const HideTodo = ({ hideCompleted, toggleHide }) => (
+const HideTodo = ({ isHidden, setHidden }) => (
   <StyledHideTodo>
     <div>
       <h3>Show completed tasks</h3>
       <p>Switch to hide</p>
     </div>
     <Switch
-      onChange={() => toggleHide()}
-      checked={!hideCompleted}
+      onChange={() => setHidden(!isHidden)}
+      checked={!isHidden}
       offColor='#139ebe'
       onColor='#2ad175'
       offHandleColor='#fff'

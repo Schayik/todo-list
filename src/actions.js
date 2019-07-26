@@ -4,6 +4,7 @@ import { store } from './'
 export const ADD_TODO_SUCCES = 'ADD_TODO_SUCCES'
 export const ADD_TODO_FAIL = 'ADD_TODO_FAIL'
 export const REMOVE_TODO = 'REMOVE_TODO'
+export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED'
 
 export const addTodoAction = name => dispatch => {
 
@@ -20,9 +21,23 @@ export const addTodoAction = name => dispatch => {
   } else {
     dispatch({
       type: ADD_TODO_SUCCES,
-      name: name,
+      name,
     })
   }
+}
+
+export const removeTodoAction = name => dispatch => {
+  dispatch({
+    type: REMOVE_TODO,
+    name,
+  })
+}
+
+export const toggleCompletedAction = name => dispatch => {
+  dispatch({
+    type: TOGGLE_COMPLETED,
+    name,
+  })
 }
 
 const doesExist = name => {

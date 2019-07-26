@@ -1,97 +1,26 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import AddTodo from './AddTodo'
 import ListTodo from './ListTodo'
 import HideTodo from './HideTodo'
 
-class TodoContainer extends Component {
+const TodoContainer = () => {
 
-  state = {
-    todoList: {
-      'Make Todo List': {
-        isCompleted: true,
-      },
-      'Send Todo List': {
-        isCompleted: true,
-      },
-      'Get Feedback on Todo List': {
-        isCompleted: false,
-      },
-    },
-    hideCompleted: false,
-    addError: '',
-  }
+  const [isHidden, setHidden] = useState(false)
 
-  addTodo = name => {
-    const { todoList } = this.state
-
-    if (!name) {
-      this.setState({ addError: 'please enter a chore' })
-    } else if (todoList[name]) {
-      this.setState({ addError: 'this chore is already added' })
-    } else {
-      this.setState({ addError: '' })
-      this.setState({
-        todoList: {
-          ...todoList,
-          [name]: {
-            isCompleted: false,
-          }
-        }
-      })
-    }
-  }
-
-  removeTodo = name => {
-    const { todoList } = this.state
-
-    let newList = todoList
-    delete newList[name]
-
-    this.setState({ todoList: newList })
-  }
-
-  toggleCompleted = name => {
-    const { todoList } = this.state
-    const isCompleted = !todoList[name].isCompleted
-
-    this.setState({
-      todoList: {
-        ...todoList,
-        [name]: {
-          ...todoList[name],
-          isCompleted,
-        }
-      }
-    })
-  }
-
-  toggleHide = () => {
-    const { hideCompleted } = this.state
-
-    this.setState({ hideCompleted: !hideCompleted })
-  }
-
-  render() {
-    const { todoList, addError, hideCompleted } = this.state
-
-    return (
-      <StyledTodoContainer>
-        <AddTodo />
-        <ListTodo
-          todoList={todoList}
-          removeTodo={this.removeTodo}
-          toggleCompleted={this.toggleCompleted}
-          hideCompleted={hideCompleted}
-        />
-        <HideTodo
-          hideCompleted={hideCompleted}
-          toggleHide={this.toggleHide}
-        />
-      </StyledTodoContainer>
-    )
-  }
+  return (
+    <StyledTodoContainer>
+      <AddTodo />
+      <ListTodo
+        isHidden={isHidden}
+      />
+      <HideTodo
+        isHidden={isHidden}
+        setHidden={setHidden}
+      />
+    </StyledTodoContainer>
+  )
 }
 
 export default TodoContainer
